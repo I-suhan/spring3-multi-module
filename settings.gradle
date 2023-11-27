@@ -1,2 +1,5 @@
 rootProject.name = 'spring3-multi-module'
+include 'su-user'
+include 'su-common'
+include 'su-app'
 
