@@ -11,6 +11,9 @@ version = '1.0-SNAPSHOT'
 allprojects {
 
     repositories {
+        mavenLocal()
+        maven { name "Alibaba" ; url "https://maven.aliyun.com/repository/public" }
+        maven { name "Bstek" ; url "https://nexus.bsdn.org/content/groups/public/" }
         mavenCentral()
     }
 
@@ -28,6 +31,9 @@ subprojects {
     }
 
     repositories {
+        mavenLocal()
+        maven { name "Alibaba" ; url "https://maven.aliyun.com/repository/public" }
+        maven { name "Bstek" ; url "https://nexus.bsdn.org/content/groups/public/" }
         mavenCentral()
     }
 
