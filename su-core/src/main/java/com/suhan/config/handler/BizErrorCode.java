@@ -1,5 +1,8 @@
-package com.suhan.app.config.handler;
+package com.suhan.config.handler;
 
+import lombok.Getter;
+
+@Getter
 public enum BizErrorCode implements ErrorCode {
 
     //  4xx 错误请求
@@ -40,11 +43,4 @@ public enum BizErrorCode implements ErrorCode {
         this.message = message;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
 }

@@ -1,4 +1,4 @@
-package com.suhan.app.config.handler;
+package com.suhan.config.handler;
 
 public interface ErrorCode {
 

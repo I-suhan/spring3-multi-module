@@ -1,7 +1,6 @@
 dependencies {
-    implementation project(':su-common')
+    implementation project(':su-core')
 }
-
 bootJar{
     enabled=false
 }

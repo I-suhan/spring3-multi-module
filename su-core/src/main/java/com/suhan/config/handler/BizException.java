@@ -1,5 +1,8 @@
-package com.suhan.app.config.handler;
+package com.suhan.config.handler;
 
+import lombok.Getter;
+
+@Getter
 public class BizException extends RuntimeException{
     private ErrorCode errorCode;
 
@@ -19,10 +22,6 @@ public class BizException extends RuntimeException{
 
     public BizException(String message, Throwable cause) {
         super(message, cause);
-    }
-
-    public ErrorCode getErrorCode() {
-        return errorCode;
     }
 
     public int getStatusCode(){

@@ -1,4 +1,4 @@
-package com.suhan.app.config;
+package com.suhan.config.datasource;
 
 import org.springframework.context.annotation.Configuration;
 
