@@ -1,3 +1,5 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 plugins {
     id 'java'
     id 'org.springframework.boot' version '3.1.6'
@@ -38,6 +40,7 @@ subprojects {
         implementation 'org.springframework.boot:spring-boot-starter-validation'
         implementation 'org.springframework.boot:spring-boot-starter-web'
         implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+        implementation 'org.springframework.boot:spring-boot-starter-log4j2'
         compileOnly 'org.projectlombok:lombok'
         runtimeOnly 'com.mysql:mysql-connector-j'
         runtimeOnly 'org.postgresql:postgresql'
@@ -45,14 +48,9 @@ subprojects {
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         testImplementation 'org.springframework.security:spring-security-test'
 
-        //log4j
-        implementation platform('org.apache.logging.log4j:log4j-bom:2.22.0')
-        implementation 'org.apache.logging.log4j:log4j-api'
-        runtimeOnly 'org.apache.logging.log4j:log4j-core'
-        implementation 'org.slf4j:slf4j-api:1.7.36'
     }
 
-    configurations.all {
+    configurations.configureEach {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
         exclude module: 'logback-classic'
         exclude module: 'logback-core'
