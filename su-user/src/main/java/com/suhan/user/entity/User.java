@@ -1,5 +1,6 @@
 package com.suhan.user.entity;
 
+import jakarta.persistence.Entity;
 import lombok.Data;
 
 import java.io.Serial;
@@ -8,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+@Entity
 public class User implements Serializable {
 
     @Serial
@@ -19,9 +21,9 @@ public class User implements Serializable {
 
     private String userPassWord;
 
-    private Date createDate;
+    private Long createDate;
 
-    private Date lastUpdateDate;
+    private Long lastUpdateDate;
 
     private List<User> friends;
 

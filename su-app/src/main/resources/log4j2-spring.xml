@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!--日志等级 All < Trace < Debug < Info < Warn < Error < Fatal < OFF-->
-<!--Status配置WARN后 Log4j2本身只打印WARN以上的日志  减去了很多Log4j2本身的Info日志(这个status不是为了限制用户的打印)-->
-<Configuration status="WARN" strict="true" monitorInterval="30">
+<!-- 标准log4j2.xml配置文件加载得太早,spring无法在其中使用扩展 -->
+<!-- 日志等级 All < Trace < Debug < Info < Warn < Error < Fatal < OFF-->
+<!-- Status配置WARN后 Log4j2本身只打印WARN以上的日志  减去了很多Log4j2本身的Info日志(这个status不是为了限制用户的打印)-->
+<Configuration status="warn" strict="true" monitorInterval="30">
     <Properties>
+        <Property name="app_name">${spring:spring.application.name}</Property>
         <Property name="log_path">D:/logs</Property>
     </Properties>
 
@@ -10,8 +12,8 @@
         <!-- 控制台输出 appender，SYSTEM_OUT输出黑色，SYSTEM_ERR输出红色 -->
         <Console name="ConsoleAppend" target="SYSTEM_OUT">
             <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
-            <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/>
-            <PatternLayout pattern="%highlight{%d{yyyy-MM-dd HH:mm:ss.SSS} [%t][%X{logId}] %-5level %logger{3} - %msg%n}"/>
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%highlight{%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX}  [%t][%X{logId}] %-5level %logger{3} - %msg%n}{yellow}"/>
         </Console>
 
         <!-- 日志文件输出 appender -->

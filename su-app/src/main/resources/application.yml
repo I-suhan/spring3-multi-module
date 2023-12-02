@@ -6,11 +6,36 @@ logging:
     org:
       springframework:
         security: INFO
-  config: classpath:log4j2.xml
+  config: classpath:log4j2-spring.xml
 spring:
+  application:
+    name: suhan
   datasource:
-    hikari:
-      username: root
-      password: 000000
-      jdbc-url: jdbc:mysql://localhost:3306/sora?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=CTT
+    user:
+      url: jdbc:mysql://localhost:3306/user?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+      username: "root"
+      password: "000000"
       driver-class-name: com.mysql.cj.jdbc.Driver
+      configuration:
+        maximum-pool-size: 30
+    product:
+      url: jdbc:mysql://localhost:3306/product?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+      username: "root"
+      password: "000000"
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      configuration:
+        maximum-pool-size: 30
+  jpa:
+    hibernate:
+      ##  自动创建 JPA 数据库
+      ddl-auto: create-drop
+  output:
+    ansi:
+      ## 日志颜色
+      enabled: always
+  sql:
+    init:
+      data-locations: classpath*:data.sql
+      schema-locations: classpath*:schema.sql
+      platform: mysql
+      mode: never
