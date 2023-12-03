@@ -1,18 +1,18 @@
 package com.suhan.user.service;
 
-import com.suhan.user.dao.UserRepository;
+import com.suhan.user.repository.UserRepository;
 import com.suhan.user.entity.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public User findById(Long id){
-        return userRepository.findUserByUserId(id);
+        return new User();
     }
 
 }

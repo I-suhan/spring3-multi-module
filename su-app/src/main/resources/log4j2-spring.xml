@@ -13,7 +13,7 @@
         <Console name="ConsoleAppend" target="SYSTEM_OUT">
             <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
             <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
-            <PatternLayout pattern="%highlight{%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX}  [%t][%X{logId}] %-5level %logger{3} - %msg%n}{yellow}"/>
+            <PatternLayout pattern="%highlight{%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} [${app_name}] [%t][%X{logId}] %-5level %logger{3} - %msg%n}{yellow}"/>
         </Console>
 
         <!-- 日志文件输出 appender -->

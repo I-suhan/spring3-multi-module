@@ -1,5 +1,21 @@
 server:
   port: 9000
+su:
+  datasource:
+    primary:
+      url: jdbc:mysql://localhost:3306/primary?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false&allowPublicKeyRetrieval=true
+      username: "root"
+      password: "000000"
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      configuration:
+        maximum-pool-size: 30
+    secondary:
+      url: jdbc:mysql://localhost:3306/second?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false&allowPublicKeyRetrieval=true
+      username: "root"
+      password: "000000"
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      configuration:
+        maximum-pool-size: 30
 logging:
   level:
     sql: info
@@ -8,27 +24,17 @@ logging:
         security: INFO
   config: classpath:log4j2-spring.xml
 spring:
+  h2:
+    console:
+      enabled: true
   application:
     name: suhan
-  datasource:
-    user:
-      url: jdbc:mysql://localhost:3306/user?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
-      username: "root"
-      password: "000000"
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      configuration:
-        maximum-pool-size: 30
-    product:
-      url: jdbc:mysql://localhost:3306/product?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
-      username: "root"
-      password: "000000"
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      configuration:
-        maximum-pool-size: 30
   jpa:
     hibernate:
+      show-sql: true
       ##  自动创建 JPA 数据库
       ddl-auto: create-drop
+      format_sql: true
   output:
     ansi:
       ## 日志颜色

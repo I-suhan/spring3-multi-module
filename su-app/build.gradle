@@ -1,6 +1,7 @@
 dependencies {
     implementation project(':su-core')
     implementation project(':su-user')
+    implementation project(':su-product')
 }
 
 bootJar{
