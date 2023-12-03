@@ -12,8 +12,9 @@
         <!-- 控制台输出 appender，SYSTEM_OUT输出黑色，SYSTEM_ERR输出红色 -->
         <Console name="ConsoleAppend" target="SYSTEM_OUT">
             <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
-            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
-            <PatternLayout pattern="%highlight{%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} [${app_name}] [%t][%X{logId}] %-5level %logger{3} - %msg%n}{yellow}"/>
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            <!--<PatternLayout pattern="%d %highlight{%-5level}{ERROR=Bright RED, WARN=Bright Yellow, INFO=Bright Green, DEBUG=Bright Cyan, TRACE=Bright White} %style{[%t]}{bright,magenta} %style{%c{1.}.%M(%L)}{cyan}: %msg%n"/>-->
+            <PatternLayout pattern="%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} %highlight{%-5level}{ERROR=Bright RED, WARN=Bright Yellow, INFO=Bright Green, DEBUG=Bright Cyan, TRACE=Bright White} %style{[${app_name}]}{fg_#FFB6C1 bright} %style{[%t]}{bright,#4682B4} %style{%logger{3}}{#98FB98} - %msg%n"/>
         </Console>
 
         <!-- 日志文件输出 appender -->

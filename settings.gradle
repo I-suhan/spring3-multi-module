@@ -1,4 +1,4 @@
-rootProject.name = 'spring3-multi-module'
+rootProject.name = 'spring3-multi-module-multi-datasource'
 include 'su-user'
 include 'su-core'
 include 'su-app'
