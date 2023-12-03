@@ -57,8 +57,4 @@ subprojects {
     tasks.named('bootBuildImage') {
         builder = 'paketobuildpacks/builder-jammy-base:latest'
     }
-
-    bootJar {
-        mainClass = 'com.example.ExampleApplication'
-    }
 }
